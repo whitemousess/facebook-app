@@ -1,4 +1,4 @@
-import React , { useState } from "react";
+import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import * as ImagePicker from "expo-image-picker";
@@ -29,17 +29,25 @@ function ButtonPost() {
         style={styles.avatar}
         source={require("~/assets/image/Avatar.jpg")}
       />
-      <TouchableOpacity onPress={openModal} style={{height: 50, width: 290 , justifyContent: "center"}} >
+      <TouchableOpacity
+        onPress={openModal}
+        style={{ height: 50, width: 290, justifyContent: "center" }}
+      >
         <Text style={{ color: "white" }}>Bạn đang nghĩ gì?</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.activityIcon} onPress={TakePicture}>
+      <TouchableOpacity
+        style={{
+          paddingTop: 10,
+          paddingBottom: 10,
+          paddingRight: 12,
+          paddingLeft: 12
+        }}
+        onPress={TakePicture}
+      >
         <Ionicons name="ios-images" size={24} color="#44b75f" />
       </TouchableOpacity>
 
-      <ModalPost
-        visible={modalVisible}
-        onClose={closeModal}
-      />
+      <ModalPost visible={modalVisible} onClose={closeModal} />
     </View>
   );
 }

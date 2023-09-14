@@ -9,6 +9,7 @@ import {
   Image,
   Button,
   TextInput,
+  ScrollView,
 } from "react-native";
 
 const ModalPost = ({ visible, onClose }) => {
@@ -29,62 +30,62 @@ const ModalPost = ({ visible, onClose }) => {
         </TouchableOpacity>
       </View>
 
-      <View style={styles.body}>
-        <View style={styles.privacy}>
-          <Image
-            style={styles.avatar}
-            source={require("~/assets/image/Avatar.jpg")}
-          />
-
-          <View>
-            <Text
-              style={{
-                color: "white",
-                fontSize: 16,
-                fontWeight: "700",
-                marginTop: 10,
-              }}
-            >
-              Chuột bạch
-            </Text>
-
-            <View style={{ flexDirection: "row" }}>
-              <TouchableOpacity style={styles.btnActive}>
-                <MaterialIcons name="public" size={18} color="#6eacf1" />
-                <Text
-                  style={{
-                    color: "#6eacf1",
-                    fontWeight: "700",
-                    fontSize: 15,
-                    marginLeft: 6,
-                  }}
-                >
-                  Công khai
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.btnActive}>
-                <Ionicons name="add" size={24} color="#6eacf1" />
-                <Text
-                  style={{
-                    color: "#6eacf1",
-                    fontWeight: "700",
-                    fontSize: 15,
-                  }}
-                >
-                  Album
-                </Text>
-              </TouchableOpacity>
+    <ScrollView style={styles.body}>
+          <View style={styles.privacy}>
+            <Image
+              style={styles.avatar}
+              source={require("~/assets/image/Avatar.jpg")}
+            />
+  
+            <View>
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: 16,
+                  fontWeight: "700",
+                  marginTop: 10,
+                }}
+              >
+                Chuột bạch
+              </Text>
+  
+              <View style={{ flexDirection: "row" }}>
+                <TouchableOpacity style={styles.btnActive}>
+                  <MaterialIcons name="public" size={18} color="#6eacf1" />
+                  <Text
+                    style={{
+                      color: "#6eacf1",
+                      fontWeight: "700",
+                      fontSize: 15,
+                      marginLeft: 6,
+                    }}
+                  >
+                    Công khai
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.btnActive}>
+                  <Ionicons name="add" size={24} color="#6eacf1" />
+                  <Text
+                    style={{
+                      color: "#6eacf1",
+                      fontWeight: "700",
+                      fontSize: 15,
+                    }}
+                  >
+                    Album
+                  </Text>
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
-        </View>
-
-        <TextInput
-          style={styles.textInput}
-          placeholderTextColor="#818588"
-          placeholder="Bạn đang nghĩ gì?"
-          multiline={true}
-        />
-      </View>
+  
+          <TextInput
+            style={styles.textInput}
+            placeholderTextColor="#818588"
+            placeholder="Bạn đang nghĩ gì?"
+            multiline={true}
+          />
+    </ScrollView>
     </Modal>
   );
 };

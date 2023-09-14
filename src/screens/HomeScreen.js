@@ -16,11 +16,11 @@ import ButtonPost from "~/components/ButtonPost";
 
 function HomeScreen() {
   return (
-   <View>
+    <View>
       <ScrollView style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.title}>facebook</Text>
-  
+
           <View style={styles.activity}>
             <TouchableOpacity style={styles.activityIcon}>
               <Ionicons name="add" size={24} color="white" />
@@ -33,16 +33,16 @@ function HomeScreen() {
             </TouchableOpacity>
           </View>
         </View>
-  
-          <ButtonPost />
-  
-        <ListStory/>
-  
+
+        <ButtonPost />
+
+        <ListStory />
+
         {postsItems.map((data) => (
           <ListItem key={data.id} data={data} />
         ))}
       </ScrollView>
-   </View>
+    </View>
   );
 }
 
@@ -81,5 +81,4 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     backgroundColor: "#3b3c3d",
   },
-
 });
