@@ -1,4 +1,4 @@
-import { Feather, Ionicons } from "@expo/vector-icons";
+import { AntDesign, Feather, Ionicons } from "@expo/vector-icons";
 import {
   Image,
   ScrollView,
@@ -8,6 +8,7 @@ import {
   View,
 } from "react-native";
 import ShortCut from "~/components/ShortCut";
+import { DataShortCut } from "~/models/data";
 
 function MenuScreen() {
   return (
@@ -37,19 +38,62 @@ function MenuScreen() {
 
         <View style={{ marginTop: 24 }}>
           <Text style={{ color: "white" }}>Tất cả lối tắt </Text>
+
           <View
             style={{
               flexDirection: "row",
               flexWrap: "wrap",
               justifyContent: "center",
+              paddingBottom: 20,
+              borderBottomColor: "#afb3b7",
+              borderBottomWidth: 0.2,
             }}
           >
-            <ShortCut />
-            <ShortCut />
-            <ShortCut />
-            <ShortCut />
+            {DataShortCut.map((data) => (
+              <ShortCut key={data.id} data={data} />
+            ))}
+            <TouchableOpacity style={styles.buttonFullWidth}>
+              <Text style={{ color: "white" }}>Xem thêm</Text>
+            </TouchableOpacity>
           </View>
         </View>
+
+        <View>
+          <TouchableOpacity
+            style={{
+              width: "95%",
+              height: 52,
+              flexDirection: "row",
+              alignItems: "center",
+              borderBottomColor: "#afb3b7",
+              borderBottomWidth: 0.2,
+            }}
+          >
+            <AntDesign name="questioncircle" size={24} color="white" />
+            <Text style={{ color: "white", fontSize: 18, marginLeft: 24 }}>
+              Trợ giúp & hỗ trợ
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              width: "95%",
+              height: 52,
+              alignItems: "center",
+
+              flexDirection: "row",
+              borderBottomColor: "#afb3b7",
+              borderBottomWidth: 0.2,
+            }}
+          >
+            <Ionicons name="settings" size={24} color="white" />
+            <Text style={{ color: "white", fontSize: 18, marginLeft: 24 }}>
+              Cài đặt và quyền riêng tư
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <TouchableOpacity style={styles.buttonFullWidth}>
+          <Text style={{ color: "white" }}>Đăng xuất</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
@@ -106,5 +150,15 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 50,
     marginRight: 10,
+  },
+
+  buttonFullWidth: {
+    width: "95%",
+    height: 40,
+    marginTop: 24,
+    borderRadius: 5,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#323435",
   },
 });

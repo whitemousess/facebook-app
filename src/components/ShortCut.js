@@ -1,9 +1,10 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-function ShortCut() {
+function ShortCut({data}) {
   return (
-    <TouchableOpacity style={styles.container}>
-        <Text style={{ color: "white" }}>ShortCut</Text>
+    <TouchableOpacity style={styles.container} onPress={() => alert(data.title)}>
+        {data.icon}
+        <Text style={{ color: "white" }}>{data.title}</Text>
     </TouchableOpacity>
   );
 }
@@ -13,8 +14,7 @@ const styles = StyleSheet.create({
     width: "46%",
     height: 70,
     padding: 10,
-    marginTop: 10,
-    marginRight: 10 ,
+    margin: 5,
     borderRadius: 8,
     justifyContent: "center",
     backgroundColor: "#323435",
